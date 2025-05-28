@@ -19,13 +19,9 @@ function updateCountBadges(counts, isAdvanced) {
 }
 
 // Utility to update total block count UI
-function updateTotalBlocks(counts, isAdvanced) {
-  if (isAdvanced) {
-    const total = sites.reduce((sum, site) => sum + (counts[`blockCount${site}`] || 0), 0);
-    totalBlocksElem.textContent = total;
-  } else {
-    totalBlocksElem.textContent = '0';
-  }
+function updateTotalBlocks(counts) {
+  const total = sites.reduce((sum, site) => sum + (counts[`blockCount${site}`] || 0), 0);
+  totalBlocksElem.textContent = total;
 }
 
 // Load and initialize checkboxes and counts
@@ -54,9 +50,10 @@ function initialize() {
     // Load block counts and update UI
     chrome.storage.sync.get(sites.map(site => `blockCount${site}`), counts => {
       updateCountBadges(counts, isAdvanced);
-      updateTotalBlocks(counts, isAdvanced);
+      updateTotalBlocks(counts);
     });
-  });
+  }
+);
 }
 
 // Listen for advanced mode toggle changes
@@ -90,7 +87,7 @@ chrome.storage.onChanged.addListener((changes, area) => {
     if (needUpdate) {
       const isAdvanced = advancedModeToggle.checked;
       updateCountBadges(counts, isAdvanced);
-      updateTotalBlocks(counts, isAdvanced);
+      updateTotalBlocks(counts);
     }
   }
 });
