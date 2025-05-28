@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DoomScroll Shield</title>
+  <meta charset="UTF-8" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      padding: 16px;
+      width: 260px;
+      background-image: url( '../assets/background.svg' );
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      margin: 0 auto;
+      box-sizing: border-box;
+      color: white;
+    }
+
+    h3 {
+      margin-bottom: 16px;
+    }
+
+    .setting {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 12px 0;
+    }
+
+    .label-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+    }
+
+    .label-left i {
+      font-size: 18px;
+      width: 20px;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 38px;
+      height: 20px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0;
+      right: 0; bottom: 0;
+      background-color: #ccc;
+      border-radius: 20px;
+      transition: 0.2s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 14px;
+      width: 14px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      border-radius: 50%;
+      transition: 0.2s;
+    }
+
+    input:checked + .slider {
+      background-color: #4caf50;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(18px);
+    }
+
+    .count-badge {
+      display: none;
+      font-size: 12px;
+      background: #505050;
+      padding: 2px 6px;
+      border-radius: 8px;
+      margin-left: 6px;
+    }
+
+    body.advanced .count-badge {
+      display: inline-block;
+    }
+
+    #advancedToggleContainer {
+      margin-top: 18px;
+      border-top: 1px solid #ccc;
+      padding-top: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #totalContainer {
+      font-size: 12px;
+      color: white;
+      text-align: right;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+    <div style="text-align: center; margin-bottom: 16px;">
+        <img src="../assets/icons/icon-128.png" alt="DoomScroll Shield Logo" style="width: 48px; height: 48px; border-radius: 50%;" />
+        <h1 style="font-size: 24px; margin: 8px 0;">DoomScroll Shield</h1>
+    </div>
+  <div class="setting">
+    <div class="label-left">
+      <i class="fa-brands fa-youtube" style="color:#FF0000"></i>
+      <span>YouTube</span>
+    </div>
+    <div>
+      <span class="count-badge" id="count-blockYoutube">0</span>
+      <label class="switch">
+        <input type="checkbox" id="blockYoutube" />
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+
+  <div class="setting">
+    <div class="label-left">
+      <i class="fa-brands fa-facebook" style="color:#1877F2"></i>
+      <span>Facebook</span>
+    </div>
+    <div>
+      <span class="count-badge" id="count-blockFacebook">0</span>
+      <label class="switch">
+        <input type="checkbox" id="blockFacebook" />
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+
+  <div class="setting">
+    <div class="label-left">
+      <i class="fa-brands fa-instagram" style="color:#E1306C"></i>
+      <span>Instagram</span>
+    </div>
+    <div>
+      <span class="count-badge" id="count-blockInstagram">0</span>
+      <label class="switch">
+        <input type="checkbox" id="blockInstagram" />
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+
+  <div class="setting">
+    <div class="label-left">
+      <i class="fa-brands fa-tiktok" style="color:white"></i>
+      <span>TikTok</span>
+    </div>
+    <div>
+      <span class="count-badge" id="count-blockTikTok">0</span>
+      <label class="switch">
+        <input type="checkbox" id="blockTikTok" />
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+
+  <div id="advancedToggleContainer">
+    <label><input type="checkbox" id="advancedModeToggle" /> Details</label>
+    <div id="totalContainer">Total blocked: <span id="totalBlocks">0</span></div>
+  </div>
+  
+  <script src="../popup/popup.js"></script>
+</body>
+<footer>
+    <div style='text-align: center;'>
+        <p>Developed with ❤️ in Roseville</p>
+    </div>
+    <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="alexfok" data-color="#FFDD00" data-emoji="🥤"  data-font="Cookie" data-text="Buy me a boba" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
+</footer>
+</html>
