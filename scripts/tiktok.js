@@ -28,8 +28,9 @@ chrome.storage.sync.get(['blockTikTok'], result => {
         }
       </style>
       <div class="block-message">
+        <img src="${chrome.runtime.getURL('assets/logo.png')}" alt="DoomScroll Shield Logo" style="width: 100px; height: 100px; border-radius: 50%;" />
         <h1>🚫 TikTok Blocked</h1>
-        <p>You blocked TikTok to protect your time. Change this in the extension settings if needed.</p>
+        <p>DoomScroll Shield blocked TikTok to protect your time. Change this in the extension settings if needed.</p>
       </div>
     `;
   });
