@@ -29,7 +29,7 @@ function incrementCounter() {
       }
     });
 
-    document.querySelectorAll('#ytd-reel-shelf-renderer.ytd-item-section-renderer.style-scope').forEach(el => {
+    document.querySelectorAll('ytd-reel-shelf-renderer').forEach(el => {
       if (el.style.display !== 'none') {
         el.remove();
         incrementCounter();
